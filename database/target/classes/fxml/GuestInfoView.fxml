@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="database.controller.GuestInfoController"
+            prefWidth="680" prefHeight="480"
+            styleClass="root-pane">
+
+    <VBox spacing="14" styleClass="main-container"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+
+        <!-- ── HLAVIČKA ── -->
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Informace o hostovi" styleClass="page-title"/>
+        </HBox>
+
+        <Separator/>
+
+        <!-- ── HLAVNÍ OBSAH: Host vlevo, Rezervace vpravo ── -->
+        <HBox spacing="30" VBox.vgrow="ALWAYS">
+
+            <!-- Levý panel: Údaje hosta -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="section-box">
+                <Label text="Host" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Číslo OP:"   GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="tfGuestId"   promptText="—" prefWidth="220"
+                               editable="false"    GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Jméno:"      GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="tfFirstName" promptText="—" prefWidth="220"
+                               editable="false"    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Příjmení:"   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="tfLastName"  promptText="—" prefWidth="220"
+                               editable="false"    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Email:"      GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="tfEmail"     promptText="—" prefWidth="220"
+                               editable="false"    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Tel. číslo:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="tfPhone"     promptText="—" prefWidth="220"
+                               editable="false"    GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+            </VBox>
+
+            <!-- Pravý panel: Seznam rezervací -->
+            <VBox spacing="10" minWidth="200" styleClass="section-box">
+                <Label text="Seznam rezervací" styleClass="section-title"/>
+                <ListView fx:id="lvReservations" prefHeight="260" prefWidth="200"/>
+            </VBox>
+
+        </HBox>
+
+        <Separator/>
+
+        <!-- ── TLAČÍTKO ZPĚT ── -->
+        <HBox alignment="CENTER_LEFT">
+            <Button text="← Zpět" onAction="#onBack" styleClass="btn-secondary" prefWidth="120"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

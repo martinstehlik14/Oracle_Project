@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="database.controller.MainController"
+            prefWidth="720" prefHeight="680"
+            styleClass="root-pane">
+
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox spacing="14" styleClass="main-container">
+            <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+
+            <!-- ── HLAVIČKA: Jméno zaměstnance ── -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header-bar">
+                <Label text="Jméno zaměstnance:" styleClass="label-muted"/>
+                <Label fx:id="lblStaffName" text="— nepřihlášen —" styleClass="label-staff"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- ── VYHLEDÁVÁNÍ ── -->
+            <VBox spacing="10" styleClass="section-box">
+
+                <!-- Vyhledat rezervaci -->
+                <Label text="Vyhledat rezervaci" styleClass="section-title"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Číslo rezervace:" minWidth="130"/>
+                    <TextField fx:id="tfSearchReservation" promptText="ID rezervace" prefWidth="200"/>
+                    <Button text="Hledat" onAction="#onSearchReservation" styleClass="btn-primary"/>
+                </HBox>
+
+                <!-- Vyhledat hosta -->
+                <Label text="Vyhledat hosta" styleClass="section-title"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Host:" minWidth="130"/>
+                    <TextField fx:id="tfSearchGuest" promptText="Jméno nebo číslo OP" prefWidth="200"/>
+                    <Button text="Hledat" onAction="#onSearchGuest" styleClass="btn-primary"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- ── AKCE ── -->
+            <HBox spacing="10">
+                <Button text="Zobrazit všechny rezervace" onAction="#onShowAllReservations"
+                        styleClass="btn-secondary" prefWidth="220"/>
+                <Button text="Nová rezervace" onAction="#onNewReservation"
+                        styleClass="btn-success" prefWidth="150"/>
+                <Button text="Volné místnosti" onAction="#onFreeRooms"
+                        styleClass="btn-secondary" prefWidth="150"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- ── INFORMACE O REZERVACI ── -->
+            <VBox spacing="12" styleClass="section-box">
+                <Label text="Informace o rezervaci" styleClass="section-title"/>
+
+                <!-- Zobrazené info -->
+                <GridPane hgap="20" vgap="6">
+                    <!-- Popisky místo radio buttonů -->
+                    <Label text="Číslo místnosti:"    GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                    <Label text="Checkin / Checkout:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                    <Label text="Host:"               GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                    <Label text="Služby:"             GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                    <Label text="Stav rezervace:"     GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+
+                    <!-- Hodnoty -->
+                    <Label fx:id="lblRoomValue"     text="—" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <Label fx:id="lblCheckinValue"  text="—" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <Label fx:id="lblHostValue"     text="—" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    <Label fx:id="lblServicesValue" text="—" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    <Label fx:id="lblStatusValue"   text="—" GridPane.columnIndex="1" GridPane.rowIndex="4" style="-fx-text-fill: #005A9E; -fx-font-weight: bold;"/>
+                </GridPane>
+
+                <!-- Akční tlačítka pro rezervaci -->
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Check in"     onAction="#onCheckIn"    styleClass="btn-primary"   prefWidth="120"/>
+                    <Button text="Check out"    onAction="#onCheckOut"   styleClass="btn-warning"   prefWidth="120"/>
+                    <Button text="Celková cena" onAction="#onTotalBill"  styleClass="btn-secondary" prefWidth="130"/>
+                </HBox>
+
+                <!-- Správa rezervace -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Zrušit rezervaci"  onAction="#onCancelReservation" styleClass="btn-danger"     prefWidth="160"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Upravit rezervaci" onAction="#onEditReservation"   styleClass="btn-secondary"  prefWidth="160"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="database.controller.ReservationFormController"
+            prefWidth="680" prefHeight="560"
+            styleClass="root-pane">
+
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox spacing="14" styleClass="main-container">
+            <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+
+            <!-- ── HLAVIČKA ── -->
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label text="Úprava / Nová rezervace" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Číslo rezervace:" styleClass="label-muted"/>
+                <Label fx:id="lblReservationId" text="(nová)" styleClass="label-staff"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- ── MÍSTNOST + DATUMY ── -->
+            <GridPane hgap="16" vgap="10" styleClass="section-box">
+                <padding><Insets top="10" bottom="10"/></padding>
+
+                <!-- Číslo místnosti -->
+                <Label text="Číslo místnosti:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="cbRoomNumber" promptText="Vyberte místnost"
+                          prefWidth="200"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <!-- Check-in -->
+                <Label text="Check-in:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <DatePicker fx:id="dpCheckin" promptText="dd.MM.yyyy"
+                            prefWidth="160"
+                            GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <!-- Check-out -->
+                <Label text="Check-out:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <DatePicker fx:id="dpCheckout" promptText="dd.MM.yyyy"
+                            prefWidth="160"
+                            GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            </GridPane>
+
+            <Separator/>
+
+            <!-- ── HOST + SERVICES ── -->
+            <HBox spacing="24" styleClass="section-box">
+
+                <!-- Levý sloupec: Host -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <Label text="Host" styleClass="section-title"/>
+
+                    <GridPane hgap="10" vgap="8">
+                        <Label text="Číslo OP:"   GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="tfGuestId"        promptText="Číslo občanského průkazu"
+                                   prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Jméno:"      GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="tfFirstName"      promptText="Křestní jméno"
+                                   prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <Label text="Příjmení:"   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="tfLastName"       promptText="Příjmení"
+                                   prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <Label text="Email:"      GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="tfEmail"          promptText="email@example.com"
+                                   prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                        <Label text="Tel. číslo:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <TextField fx:id="tfPhone"          promptText="+420 XXX XXX XXX"
+                                   prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- Pravý sloupec: Services -->
+                <VBox spacing="10" minWidth="160">
+                    <Label text="Services" styleClass="section-title"/>
+                    <CheckBox fx:id="cbBreakfast" text="Snídaně"/>
+                    <CheckBox fx:id="cbWellness"  text="Wellness"/>
+                    <CheckBox fx:id="cbParking"   text="Parkování"/>
+                </VBox>
+
+            </HBox>
+
+            <Separator/>
+
+            <!-- ── TLAČÍTKA ── -->
+            <HBox spacing="12" alignment="CENTER">
+                <Button text="← Zpět" onAction="#onBack" styleClass="btn-secondary" prefWidth="120"/>
+                <Button text="Uložit" onAction="#onSave" styleClass="btn-success"   prefWidth="160"/>
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

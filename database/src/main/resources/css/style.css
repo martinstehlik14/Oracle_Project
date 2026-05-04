@@ -1,0 +1,132 @@
+/* ── Základní barvy ── */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f6f9;
+}
+
+.root-pane {
+    -fx-background-color: #f4f6f9;
+}
+
+/* ── Kontejnery ── */
+.main-container {
+    -fx-background-color: #f4f6f9;
+}
+
+.section-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #dde3ed;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 2);
+}
+
+/* ── Nadpisy ── */
+.page-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a2340;
+}
+
+.section-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e6b;
+}
+
+.header-bar {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #dde3ed;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 16 10 16;
+}
+
+.label-muted {
+    -fx-text-fill: #7a8599;
+}
+
+.label-staff {
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a2340;
+}
+
+/* ── Tlačítka ── */
+.button {
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6;
+    -fx-padding: 7 16 7 16;
+    -fx-border-width: 0;
+}
+
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.btn-primary:hover { -fx-background-color: #1d4ed8; }
+
+.btn-secondary {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #2c3e6b;
+}
+.btn-secondary:hover { -fx-background-color: #cbd5e1; }
+
+.btn-success {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.btn-success:hover { -fx-background-color: #15803d; }
+
+.btn-warning {
+    -fx-background-color: #d97706;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.btn-warning:hover { -fx-background-color: #b45309; }
+
+.btn-danger {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.btn-danger:hover { -fx-background-color: #b91c1c; }
+
+/* ── Vstupní pole ── */
+.text-field, .date-picker .text-field, .combo-box .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10 5 10;
+}
+
+.text-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.15), 4, 0, 0, 0);
+}
+
+/* ── ListView ── */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.list-cell:selected {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1d4ed8;
+}
+
+/* ── Separator ── */
+.separator .line {
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1 0 0 0;
+}

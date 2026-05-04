@@ -1,0 +1,12 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-free:latest-fast
+    container_name: hotel_db
+    environment:
+      - ORACLE_PASSWORD=admin
+      - APP_USER=hotel
+      - APP_PASSWORD=hotel
+    ports:
+      - "1521:1521"
+    volumes:
+      - ./db-init:/container-entrypoint-initdb.d
